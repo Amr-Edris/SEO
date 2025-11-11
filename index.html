@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ✅ Put this FIRST -->
+  <!-- 🌈 Dynamic Theme Colors for Light & Dark -->
   <meta name="theme-color" content="#FF0000">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FF0000">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#FF0000">
-
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FF0000">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Scanly" />
-
+  <!-- 🌐 Primary SEO Meta Tags -->
   <title>Scanly | Smart Digital Menu for Restaurants & Cafes</title>
   <meta name="description" content="Scanly is a smart digital service سكانلي | خدمة رقمية ذكية — create and manage QR menus for restaurants, cafes, and hotels." />
   <meta name="keywords" content="menu, qr, digital, restaurants, cafes, hotels, Scanly, سكانلي, smart service, online menu, PWA" />
   <meta name="author" content="Scanly" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Favicon & Icons -->
+  <!-- 🎨 Theme & App Colors -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Scanly" />
+
+  <!-- 🖼️ Favicon & App Icons -->
   <link rel="icon" type="image/png" href="assets/assets/images/logo.png" sizes="32x32" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/assets/images/logo.png" />
   <link rel="shortcut icon" href="assets/assets/images/logo.png" />
 
-  <!-- Open Graph -->
+  <!-- 📣 Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Scanly | Smart Digital Menu for Restaurants & Cafes" />
   <meta property="og:description" content="Scanly is a smart digital service سكانلي | خدمة رقمية ذكية — create and manage QR menus for restaurants, cafes, and hotels." />
@@ -33,7 +34,7 @@
   <meta property="og:url" content="https://yourdomain.com/" />
   <meta property="og:site_name" content="Scanly" />
 
-  <!-- Twitter -->
+  <!-- 🐦 Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Scanly | Smart Digital Menu for Restaurants & Cafes" />
   <meta name="twitter:description" content="Scanly is a smart digital service سكانلي | خدمة رقمية ذكية — create and manage QR menus for restaurants, cafes, and hotels." />
@@ -41,8 +42,10 @@
   <meta name="twitter:site" content="@Scanly" />
   <meta name="twitter:creator" content="@Scanly" />
 
+  <!-- 💾 PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
 
+  <!-- 🔤 Fonts & Styles -->
   <link rel="preload" href="assets/assets/fonts/ar/ar-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
   <style>
     @font-face {
@@ -55,13 +58,40 @@
 
     html, body {
       font-family: 'AR', sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 50px;
     }
   </style>
 
+  <!-- 🧠 Dynamic Theme Color Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      function updateThemeColor() {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        themeMeta.setAttribute('content', isDark ? '#000000' : '#FF0000');
+        document.body.style.backgroundColor = isDark ? '#000000' : '#ffffff';
+      }
+
+      // Set on load + listen for changes
+      updateThemeColor();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateThemeColor);
+    });
+  </script>
+
+  <!-- Flutter Web -->
   <meta name="flutter-web-renderer" content="html" />
+  <!-- <script src="flutter_bootstrap.js" async></script> -->
 </head>
 
 <body>
-  <p>تعا نفخو</p>
+  <p>سكانلي | Scanly — Smart Digital Menu</p>
 </body>
 </html>
