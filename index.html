@@ -5,50 +5,48 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>Scanly App</title>
-  <meta name="description" content="Scanlyo Menu Progressive Web App for restaurants and cafes. Scan menus instantly with your phone!" />
-  <meta name="keywords" content="restaurant menu, cafe menu, digital menu, QR menu, Scanly" />
+  <!-- 🌐 Primary SEO Meta Tags -->
+  <title>Scanly | Smart Digital Menu for Restaurants & Cafes</title>
+  <meta name="description" content="Scanly is a smart digital service سكانلي | خدمة رقمية ذكية — create and manage QR menus for restaurants, cafes, and hotels." />
+  <meta name="keywords" content="menu, qr, digital, restaurants, cafes, hotels, Scanly, سكانلي, smart service, online menu, PWA" />
   <meta name="author" content="Scanly" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Theme & App Colors -->
+  <!-- 🎨 Theme & App Colors -->
   <meta name="theme-color" content="#0175C2" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <meta name="apple-mobile-web-app-title" content="Scanly" />
 
-  <!-- Favicon & App Icons -->
-  <link id="favicon" rel="icon" type="image/png" href="https://amr-edris.github.io/SEO/logo.png" sizes="16x16" />
-  <link id="apple-icon" rel="apple-touch-icon" sizes="57x57" href="https://amr-edris.github.io/SEO/logo.png" />
-  <link rel="shortcut icon" href="https://amr-edris.github.io/SEO/logo.png" />
+  <!-- 🖼️ Favicon & App Icons -->
+  <link rel="icon" type="image/png" href="assets/assets/images/logo.png" sizes="32x32" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/assets/images/logo.png" />
+  <link rel="shortcut icon" href="assets/assets/images/logo.png" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- 📣 Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Scanly App" />
-  <meta property="og:description" content="Scanlyo Menu Progressive Web App for restaurants and cafes. Scan menus instantly with your phone!" />
-  <meta property="og:image" content="https://amr-edris.github.io/SEO/logo.png" />
-  <meta property="og:url" content="https://amr-edris.github.io/SEO/" />
+  <meta property="og:title" content="Scanly | Smart Digital Menu for Restaurants & Cafes" />
+  <meta property="og:description" content="Scanly is a smart digital service سكانلي | خدمة رقمية ذكية — create and manage QR menus for restaurants, cafes, and hotels." />
+  <meta property="og:image" content="assets/assets/images/logo.png" />
+  <meta property="og:url" content="https://yourdomain.com/" />
   <meta property="og:site_name" content="Scanly" />
 
-  <!-- Twitter Card -->
+  <!-- 🐦 Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Scanly App" />
-  <meta name="twitter:description" content="Scanlyo Menu Progressive Web App for restaurants and cafes. Scan menus instantly with your phone!" />
-  <meta name="twitter:image" content="https://amr-edris.github.io/SEO/logo.png" />
+  <meta name="twitter:title" content="Scanly | Smart Digital Menu for Restaurants & Cafes" />
+  <meta name="twitter:description" content="Scanly is a smart digital service سكانلي | خدمة رقمية ذكية — create and manage QR menus for restaurants, cafes, and hotels." />
+  <meta name="twitter:image" content="assets/assets/images/logo.png" />
   <meta name="twitter:site" content="@Scanly" />
   <meta name="twitter:creator" content="@Scanly" />
 
-  <!-- Preload Primary Font -->
-  <link rel="preload" href="ar-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-
-  <!-- PWA Manifest -->
+  <!-- 💾 PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
 
-  <!-- Fonts & Styles -->
+  <!-- 🔤 Fonts & Styles -->
+  <link rel="preload" href="assets/assets/fonts/ar/ar-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
   <style>
     @font-face {
       font-family: 'AR';
-      src: url('ar-Regular.ttf') format('truetype');
+      src: url('assets/assets/fonts/ar/ar-Regular.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -56,79 +54,11 @@
 
     html, body {
       font-family: 'AR', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: white;
     }
   </style>
 
+  <!-- Flutter Web -->
   <meta name="flutter-web-renderer" content="html" />
+  <!-- <script src="flutter_bootstrap.js" async></script> -->
 </head>
-
-<body>
-  <h1 id="appTitle">Scanly</h1>
-  <p>hello</p>
-  <img id="brandImage" src="https://amr-edris.github.io/SEO/logo.png" alt="Scanly Logo" width="150">
-
-  <script>
-    // ==============================
-    // 🔧 Dynamic SEO + Branding Setup
-    // ==============================
-
-    // Change these variables for each restaurant or brand
-    const brandTitle = "CoffeeHub Menu | Scanly";
-    const brandDescription = "View CoffeeHub's digital QR menu — scan, order, and enjoy your favorite coffee.";
-    const brandColor = "#6F4E37";
-    const brandImage = "https://amr-edris.github.io/SEO/logo.svg";
-
-    function updateSEO(title, description, color, image) {
-      // Title
-      document.title = title;
-
-      // Description
-      const descTag = document.querySelector('meta[name="description"]');
-      if (descTag) descTag.setAttribute('content', description);
-
-      // Theme color
-      const theme = document.querySelector('meta[name="theme-color"]');
-      if (theme) theme.setAttribute('content', color);
-
-      // Open Graph
-      const ogTags = {
-        "og:title": title,
-        "og:description": description,
-        "og:image": image
-      };
-      for (const prop in ogTags) {
-        let tag = document.querySelector(`meta[property="${prop}"]`);
-        if (tag) tag.setAttribute('content', ogTags[prop]);
-      }
-
-      // Twitter
-      const twitterTags = {
-        "twitter:title": title,
-        "twitter:description": description,
-        "twitter:image": image
-      };
-      for (const name in twitterTags) {
-        let tag = document.querySelector(`meta[name="${name}"]`);
-        if (tag) tag.setAttribute('content', twitterTags[name]);
-      }
-
-      // Favicon + Apple Icon
-      const favicon = document.getElementById('favicon');
-      const appleIcon = document.getElementById('apple-icon');
-      if (favicon) favicon.setAttribute('href', image);
-      if (appleIcon) appleIcon.setAttribute('href', image);
-
-      // Visible Elements
-      document.getElementById('appTitle').textContent = title;
-      document.getElementById('brandImage').src = image;
-      document.body.style.backgroundColor = color + "10"; // soft tint
-    }
-
-    // Apply it immediately
-    updateSEO(brandTitle, brandDescription, brandColor, brandImage);
-  </script>
-</body>
 </html>
