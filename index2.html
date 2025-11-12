@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Array Logic Playground</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #0078d7;
+      color: white;
+      text-align: center;
+      padding: 1.2em;
+    }
+    main {
+      max-width: 850px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    input, button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background: #0078d7;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #005fa3; }
+    pre {
+      background: #111;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.9em;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      padding: 1em;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🧠 JavaScript Array Logic Playground</h1>
+    <p>Test <b>find</b>, <b>findLast</b>, <b>findIndex</b>, <b>findLastIndex</b>, <b>push</b>, and <b>pop</b></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>🔢 Find / Index Tester</h2>
+      <input type="text" id="arrayInput" placeholder="Enter array e.g. 50,20,30,40,50" value="50,20,30,40,50">
+      <input type="text" id="conditionInput" placeholder="Condition (e.g. ele >= 30 && ind < 4)" value="ele >= 30 && ind < 4">
+      <button id="runButton">Run Functions</button>
+      <pre id="output">Results will appear here...</pre>
+    </section>
+
+    <section>
+      <h2>📥 Push / Pop (Dynamic Array)</h2>
+      <p><strong>Current Array:</strong> <span id="currentArray">[50,20,30,40,50]</span></p>
+      <input type="text" id="pushElementsInput" placeholder="Elements to push (e.g. 60,70)">
+      <button id="pushButton">Push</button>
+      <button id="popButton">Pop</button>
+      <button id="resetButton">Reset Array</button>
+      <pre id="pushPopOutput">Push/Pop results will appear here...</pre>
+    </section>
+
+    <section>
+      <h2>💻 JavaScript Code</h2>
+      <pre id="codeBlock"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Interactive JS Logic Demo — Host on GitHub Pages 🚀</p>
+  </footer>
+
+  <script>
+    // ---------------------------
+    // Core Array Logic Functions
+    // ---------------------------
+    function find(array, condition) {
+      for (const index in array)
+        if (condition(array[index], +index))
+          return array[index];
+      return undefined;
+    }
+
+    function findLast(array, condition) {
+      for (let i = array.length - 1; i >= 0; i--)
+        if (condition(array[i], i))
+          return array[i];
+      return undefined;
+    }
+
+    function findIndex(array, condition) {
+      for (const index in array)
+        if (condition(array[index], +index))
+          return +index;
+      return -1;
+    }
+
+    function findLastIndex(array, condition) {
+      for (let i = array.length - 1; i >= 0; i--)
+        if (condition(array[i], i))
+          return i;
+      return -1;
+    }
+
+    function push(array, ...elements) {
+      for (let i = 0; i < elements.length; i++) {
+        array.push(elements[i]);
+      }
+      return array.length;
+    }
+
+    function pop(array) {
+      if (array.length === 0) return undefined;
+      return array.pop();
+    }
+
+    // ---------------------------
+    // Interactivity
+    // ---------------------------
+    let liveArray = [50, 20, 30, 40, 50];
+
+    // --- FIND / INDEX TESTER ---
+    document.getElementById("runButton").addEventListener("click", () => {
+      const arrInput = document.getElementById("arrayInput").value;
+      const condText = document.getElementById("conditionInput").value;
+
+      const array = arrInput.split(",").map(v => parseFloat(v.trim())).filter(v => !isNaN(v));
+      let condition;
+
+      try {
+        condition = new Function("ele", "ind", "return " + condText);
+      } catch (e) {
+        alert("Invalid condition syntax!");
+        return;
+      }
+
+      const results = {
+        find: find(array, condition),
+        findLast: findLast(array, condition),
+        findIndex: findIndex(array, condition),
+        findLastIndex: findLastIndex(array, condition)
+      };
+
+      // Handle undefined values clearly
+      for (let key in results) {
+        if (results[key] === undefined)
+          results[key] = "undefined (no match found — works as expected)";
+      }
+
+      document.getElementById("output").textContent = JSON.stringify(results, null, 2);
+    });
+
+    // --- PUSH / POP SECTION ---
+    const updateDisplay = () => {
+      document.getElementById("currentArray").textContent = `[${liveArray.join(", ")}]`;
+    };
+
+    document.getElementById("pushButton").addEventListener("click", () => {
+      const elements = document.getElementById("pushElementsInput").value.split(",").map(v => v.trim()).filter(v => v);
+
+      if (elements.length === 0) {
+        const length = liveArray.length;
+        updateDisplay();
+        document.getElementById("pushPopOutput").textContent =
+          `ℹ️ No elements provided — array unchanged.\nCurrent Length: ${length}`;
+        return;
+      }
+
+      const newLength = push(liveArray, ...elements);
+      updateDisplay();
+      document.getElementById("pushPopOutput").textContent =
+        `✅ Pushed: [${elements.join(", ")}]\nArray Now: [${liveArray.join(", ")}]\nNew Length: ${newLength}`;
+    });
+
+    document.getElementById("popButton").addEventListener("click", () => {
+      const popped = pop(liveArray);
+      updateDisplay();
+      document.getElementById("pushPopOutput").textContent =
+        `🧹 Popped Element: ${popped}\nArray Now: [${liveArray.join(", ")}]`;
+    });
+
+    document.getElementById("resetButton").addEventListener("click", () => {
+      liveArray = [50, 20, 30, 40, 50];
+      updateDisplay();
+      document.getElementById("pushPopOutput").textContent = "🔄 Array Reset to Default";
+    });
+
+    updateDisplay();
+
+    // --- SHOW SOURCE CODE ---
+    const code = `
+function find(array,condition){
+    for(const index in array)
+        if(condition(array[index],index))
+            return array[index];     
+    return undefined;
+}
+function findLast(array,condition){
+    for(let i=array.length-1;i>=0;i--)
+        if(condition(array[i],i))
+            return array[i];     
+    return undefined;
+}
+function findIndex(array,condition){
+    for(const index in array)
+        if(condition(array[index],index))
+            return index;     
+    return -1;
+}
+function findLastIndex(array,condition){
+    for(let i=array.length-1;i>=0;i--)
+        if(condition(array[i],i))
+            return i;     
+    return -1;
+}
+function push(array , ...elements) {
+    for (let i=0;i<elements.length;i++) {
+        array.push(elements[i]);
+    }
+    return array.length;
+}
+function pop(array) { 
+    if (array.length==0)
+        return undefined;
+    return array.pop();
+}`;
+    document.getElementById("codeBlock").textContent = code;
+  </script>
+</body>
+</html>
