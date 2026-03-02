@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #3E5B20;
+  --secondary-color: #B4AC79;
+  --font-color: #1e1e1e;
+  --light-bg: #f4f6f8;
+  --white: #ffffff;
+
+  --main-font: 'Cairo', sans-serif;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
