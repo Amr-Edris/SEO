@@ -3,7 +3,6 @@
   src: url('../assets/fonts/Cairo.woff2') format('woff2');
   font-display: swap;
 }
-
 :root {
   --primary-color: #3E5B20;
   --secondary-color: #B4AC79;
@@ -16,7 +15,6 @@
   --radius: 14px;
   --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -33,10 +31,7 @@ body {
   background: var(--white);
   line-height: 1.6;
 }
-img {
-  max-width: 100%;
-  height: auto;
-}
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -168,9 +163,8 @@ img {
 }
 
 .hero-image {
-  min-height: 400px; /* reserve space */
-
-  margin-top: 20px;
+  width:500px;
+  height:400px;
   flex: 1;
   display: flex;
   justify-content: center; 
@@ -178,9 +172,9 @@ img {
 }
 
 .hero-image img {
-    max-width: 80%;  
-    max-height: 450px; 
-  height: auto;      
+    max-width: 80%;  /* smaller on mobile */
+    max-height: 450px; /* optional height limit */   /* don’t exceed container height */
+  height: auto;          /* keep natural aspect ratio */
   object-fit: contain;
 }
 .hero h1 {
@@ -388,7 +382,6 @@ color: #fff;
 .about-image lottie-player {
   width: 100%;
   max-width: 420px;
-
 }
 
 .about-content h2 {
@@ -467,7 +460,9 @@ section {
     
     /* spacing between buttons */
 }
-
+  .hero-image {
+    margin-top: 20px;
+  }
   .nav {
     justify-content: space-between; /* space logo and burger */
     align-items: center;

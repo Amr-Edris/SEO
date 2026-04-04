@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'Cairo';
+  src: url('../assets/fonts/Cairo.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  --primary-color: #3E5B20;
+  --secondary-color: #B4AC79;
+  --font-color: #1e1e1e;
+  --light-bg: #f4f6f8;
+  --white: #ffffff;
+
+  --main-font: 'Cairo', sans-serif;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    font-family: Cairo, sans-serif;
+    margin: 0;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #3E5B20;
+}
+
+.header p {
+      text-align: justify;
+}
+
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+h2 {
+    color: #3E5B20;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-right: 20px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 20px 0px 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #B4AC79;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.back-btn:hover {
+    opacity: 0.9;
+}
