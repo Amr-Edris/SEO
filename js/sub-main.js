@@ -1,3 +1,5 @@
+const BASE_PATH = "/SEO";
+
 const params = new URLSearchParams(window.location.search);
 
 const urlTheme = params.get("theme");
@@ -16,5 +18,5 @@ function goHome() {
     const theme = params.get("theme") || localStorage.getItem("theme") || "light";
     const lang = params.get("lang") || localStorage.getItem("lang") || "ar";
 
-    window.location.href = `/${lang}/index.html?theme=${theme}`;
+    window.location.href = `/${BASE_PATH}${lang}/index.html?theme=${theme}`;
 }
