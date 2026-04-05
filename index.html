@@ -5,6 +5,7 @@
   <title>Loading...</title>
 
   <script>
+    const BASE_PATH = "/SEO";
     const params = new URLSearchParams(window.location.search);
 
     const lang =
@@ -28,7 +29,7 @@
 
     const page = lang === "en" ? "/en/" : "/ar/";
 
-    window.location.replace(`${page}?theme=${theme}`);
+    window.location.replace(`${BASE_PATH}${page}?theme=${theme}`);
   </script>
 </head>
 <body>
