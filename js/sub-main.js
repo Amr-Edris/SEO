@@ -17,6 +17,6 @@ function goHome() {
 
     const theme = params.get("theme") || localStorage.getItem("theme") || "light";
     const lang = params.get("lang") || localStorage.getItem("lang") || "ar";
-
+///
     window.location.href = `${BASE_PATH}/${lang}/?theme=${theme}`;
 }
