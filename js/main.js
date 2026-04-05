@@ -323,7 +323,7 @@ function setActiveNav() {
       const currentTheme = localStorage.getItem("theme");
       const query = currentTheme ? `?theme=${currentTheme}` : "";
 
-      const isArabicPage = window.location.pathname.includes("/ar/");
+      const isArabicPage = window.location.pathname.includes("/en/");
 
       if (isArabicPage) {
         window.location.href = `${BASE_PATH}/en/index.html${query}`;
