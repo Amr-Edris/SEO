@@ -261,29 +261,29 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      ACTIVE NAV (SCROLL SPY FIX)
   ========================== */
-  function setActiveNav() {
-    const sections = document.querySelectorAll("section[id]");
-    const scrollY = window.scrollY;
+function setActiveNav() {
+  const sections = document.querySelectorAll("section[id], footer[id]");
+  const scrollY = window.scrollY + 120; // offset for navbar
 
-    let currentSectionId = "home";
+  let currentSectionId = "home";
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionBottom = sectionTop + section.offsetHeight;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
 
-      if (scrollY >= sectionTop && scrollY < sectionBottom) {
-        currentSectionId = section.id;
-      }
-    });
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      currentSectionId = section.getAttribute("id");
+    }
+  });
 
-    document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
-      link.classList.remove("active");
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.classList.remove("active");
 
-      if (link.getAttribute("href") === `#${currentSectionId}`) {
-        link.classList.add("active");
-      }
-    });
-  }
+    if (link.getAttribute("href") === `#${currentSectionId}`) {
+      link.classList.add("active");
+    }
+  });
+}
 
   // run on load
   setActiveNav();
