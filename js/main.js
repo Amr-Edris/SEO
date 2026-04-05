@@ -139,9 +139,9 @@ if (burger && nav && overlay) {
       const isArabicPage = window.location.pathname.includes("/ar/");
 
       if (isArabicPage) {
-      window.location.href = `${BASE_PATH}/en/index.html${query}`;
+      window.location.href = `${BASE_PATH}/en/${query}`;
       } else {
-      window.location.href = `${BASE_PATH}/ar/index.html${query}`;
+      window.location.href = `${BASE_PATH}/ar/${query}`;
       }
     });
   }
