@@ -148,24 +148,41 @@ if (burger && nav && overlay) {
 
 });
 
-
 function setActiveNav() {
-  const hash = window.location.hash || "#home";
+  const sections = document.querySelectorAll("section[id], footer[id]");
+  const scrollY = window.scrollY + 150;
+
+  let currentSectionId = "home";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+
+    if (scrollY >= sectionTop) {
+      currentSectionId = section.getAttribute("id");
+    }
+  });
+
+  // ✅ FIX for footer (VERY IMPORTANT)
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 5) {
+    currentSectionId = "contact";
+  }
 
   document.querySelectorAll(".nav-links a").forEach(link => {
     link.classList.remove("active");
 
-    if (link.getAttribute("href") === hash) {
+    if (link.getAttribute("href") === `#${currentSectionId}`) {
       link.classList.add("active");
     }
   });
 }
-
 // run on load
 setActiveNav();
 
 // run when hash changes
 window.addEventListener("hashchange", setActiveNav);
+window.addEventListener("scroll", setActiveNav);
+window.addEventListener("load", setActiveNav);
+window.addEventListener("resize", setActiveNav);
 
 // ALSO run after clicking nav links (important fix)
 document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
@@ -173,164 +190,3 @@ document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
     setTimeout(setActiveNav, 0);
   });
 });
-// document.addEventListener("DOMContentLoaded", () => {
-
-//   const BASE_PATH = "";
-
-//   /* =========================
-//      THEME INIT
-//   ========================== */
-//   const params = new URLSearchParams(window.location.search);
-//   const savedTheme = localStorage.getItem("theme");
-//   const theme = params.get("theme") || savedTheme || "light";
-
-//   localStorage.setItem("theme", theme);
-
-//   const themeIcon = document.getElementById("themeIcon");
-
-//   function applyTheme(theme) {
-//     document.documentElement.classList.remove("dark", "light");
-//     document.documentElement.classList.add(theme);
-
-//     if (themeIcon) {
-//       themeIcon.src =
-//         theme === "dark"
-//           ? "../assets/icons/light.svg"
-//           : "../assets/icons/dark.svg";
-//     }
-//   }
-
-//   function updateURL(theme) {
-//     const url = new URL(window.location);
-//     url.searchParams.set("theme", theme);
-//     window.history.replaceState({}, '', url);
-//   }
-
-//   function updateFooterLinks(theme) {
-//     document.querySelectorAll(".footer-links a").forEach(link => {
-//       const baseUrl = link.getAttribute("href").split("?")[0];
-//       const url = new URL(BASE_PATH + baseUrl, window.location.origin);
-
-//       url.searchParams.set("theme", theme);
-//       link.href = url.toString();
-//     });
-//   }
-
-//   applyTheme(theme);
-//   updateFooterLinks(theme);
-
-//   /* =========================
-//      THEME TOGGLE
-//   ========================== */
-//   const themeBtn = document.getElementById("themeToggle");
-
-//   if (themeBtn) {
-//     themeBtn.addEventListener("click", () => {
-//       const isDark = document.documentElement.classList.contains("dark");
-//       const newTheme = isDark ? "light" : "dark";
-
-//       localStorage.setItem("theme", newTheme);
-//       applyTheme(newTheme);
-//       updateURL(newTheme);
-//       updateFooterLinks(newTheme);
-//     });
-//   }
-
-//   /* =========================
-//      BURGER MENU
-//   ========================== */
-//   const burger = document.querySelector(".burger");
-//   const nav = document.querySelector(".nav-links");
-//   const overlay = document.getElementById("overlay");
-
-//   if (burger && nav && overlay) {
-
-//     burger.addEventListener("click", () => {
-//       nav.classList.toggle("active");
-//       burger.classList.toggle("active");
-//       overlay.classList.toggle("active");
-//     });
-
-//     overlay.addEventListener("click", () => {
-//       nav.classList.remove("active");
-//       burger.classList.remove("active");
-//       overlay.classList.remove("active");
-//     });
-//   }
-
-//   /* =========================
-//      ACTIVE NAV (SCROLL SPY FIX)
-//   ========================== */
-// function setActiveNav() {
-//   const sections = document.querySelectorAll("section[id], footer[id]");
-//   const scrollY = window.scrollY + 120; // offset for navbar
-
-//   let currentSectionId = "home";
-
-//   sections.forEach(section => {
-//     const sectionTop = section.offsetTop;
-//     const sectionHeight = section.offsetHeight;
-
-//     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-//       currentSectionId = section.getAttribute("id");
-//     }
-//   });
-
-//   document.querySelectorAll(".nav-links a").forEach(link => {
-//     link.classList.remove("active");
-
-//     if (link.getAttribute("href") === `#${currentSectionId}`) {
-//       link.classList.add("active");
-//     }
-//   });
-// }
-
-//   // run on load
-//   setActiveNav();
-
-//   // ✅ IMPORTANT: update on scroll
-//   window.addEventListener("scroll", setActiveNav);
-
-//   // update on click
-//   document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
-//     link.addEventListener("click", () => {
-//       setTimeout(setActiveNav, 0);
-//     });
-//   });
-
-//   /* =========================
-//      CASE CARDS
-//   ========================== */
-//   document.addEventListener("click", (e) => {
-//     const card = e.target.closest(".case-card");
-//     if (!card) return;
-
-//     const link = card.dataset.link;
-//     if (link) {
-//       window.location.href = link;
-//     }
-//   });
-
-//   /* =========================
-//      LANGUAGE TOGGLE
-//   ========================== */
-//   const langBtn = document.getElementById("langToggle");
-
-//   if (langBtn) {
-//     langBtn.addEventListener("click", () => {
-//       window.sessionStorage.setItem("scrollPos", window.scrollY);
-
-//       const currentTheme = localStorage.getItem("theme");
-//       const query = currentTheme ? `?theme=${currentTheme}` : "";
-
-//       const isEnglishPage = window.location.pathname.includes("/en/");
-
-//       if (isEnglishPage) {
-//         window.location.href = `${BASE_PATH}/en/index.html${query}`;
-//       } else {
-//         window.location.href = `${BASE_PATH}/ar/index.html${query}`;
-//       }
-//     });
-//   }
-
-// });
