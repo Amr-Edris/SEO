@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Base -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>DentLink | حجز الحالات السريرية بسهولة</title>
+
+<script>
+  (function () {
+  const params = new URLSearchParams(window.location.search);
+
+  const urlTheme = params.get("theme");
+  const savedTheme = localStorage.getItem("theme");
+
+  const theme = urlTheme || savedTheme || "light";
+
+  document.documentElement.classList.remove("dark", "light");
+  document.documentElement.classList.add(theme);
+
+  localStorage.setItem("theme", theme);
+})();
+</script>
+<!-- CSS -->
+<link rel="preload" href="assets/fonts/Cairo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/style.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+<link rel="preload" as="image" href="assets/images/doctor.svg">
+
+  <!-- SEO -->
+<meta name="description" content="DentLink منصة متخصصة لحجز الحالات السريرية لطلاب طب الأسنان. موقع واحد يجمع جميع الحالات السنية بسهولة وأمان.">
+<meta name="keywords" content="
+DentLink,
+حالات سنية, طب أسنان, حجز حالات, منصة طبية,
+طالب طب أسنان, طبيب أسنان, علاج الأسنان, رعاية الأسنان, سن, أسنان,
+student, dentist, dental, care, tooth, teeth,
+
+النسج حول السنية, Periodontics,
+المداواة اللبية, Endodontics,
+المداواة المحافظة, Conservative Dentistry,
+التعويضات المتحركة, Removable Prosthodontics,
+أمراض اللثة, Gum Diseases,
+التعويضات الثابتة, Fixed Prosthodontics,
+طب أسنان الأطفال, Pediatric Dentistry,
+أمراض الفم, Oral Diseases,
+القلع, Extraction,
+الرئيسية , main,
+الصفحة , page,
+سياسة الخصوصية , main page
+">
+<meta name="author" content="DentLink">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dentlink.sy/landing-ar">
+<link rel="alternate" hreflang="ar" href="https://dentlink.sy/landing-ar">
+<link rel="alternate" hreflang="en" href="https://dentlink.sy/landing-en">
+<!-- Open Graph (Facebook / WhatsApp) -->
+<meta property="og:title" content="DentLink - حجز الحالات السريرية">
+<meta property="og:description" content="موقع يجمع جميع الحالات السنية في مكان واحد">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/logo.png">
+<meta property="og:url" content="https://dentlink.sy/landing-ar">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DentLink">
+<meta name="twitter:description" content="حجز الحالات السريرية بسهولة">
+<meta name="twitter:image" content="https://dentlink.sy/assets/images/logo.png">
+
+
+<!-- Theme -->
+<meta name="theme-color" content="#3E5B20">
+
+<!-- iOS PWA -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DentLink">
+
+<!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+  
+
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DentLink",
+  "url": "https://dentlink.sy/landing-ar",
+  "description": "منصة لحجز الحالات السريرية لطلاب طب الأسنان",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://dentlink.sy/landing-ar/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+
+<body>
+<header class="header">
+  <div class="container nav">
+      <nav class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">الفثات</a>
+      <a href="#how-it-works">كيف يعمل</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">اتصل بنا</a>
+        <a href="http://localhost:52089/auth/login/">تسجيل الدخول</a>
+        <a href="http://localhost:52089/auth/register/" >إنشاء حساب</a>
+      <hr>
+
+        <div class="header-actions">
+  <button id="langToggle" class="icon-btn lang-btn">
+    <img src="assets/icons/language.svg" alt="language" />
+    <span id="langText">AR</span>
+  </button>
+
+  <button id="themeToggle" class="icon-btn theme-btn">
+    <img id="themeIcon" src="assets/icons/dark.svg" alt="theme" />
+  </button>
+</div>
+      </nav>
+ 
+        <div class="logo">
+      <img id="logo-img"  src="assets/images/horizontal-white-logo.svg" alt="DentLink طبيب أسنان"  loading="eager" fetchpriority="high">
+    </div>  
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+<div id="overlay"></div>
+<main>
+
+<section id="home"class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <h1>حجز حالاتك السريرية بسهولة – موقع واحد يجمع كل الحالات</h1>
+      <p>
+        تواصل مع مرضى حقيقيين بحاجة لعلاج الأسنان أثناء استكمال متطلباتك السريرية
+        بشكل آمن تحت إشراف ومفيد للجميع.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="http://localhost:52089/auth/register/" class="btn primary">إنشاء حساب</a>
+        <a href="http://localhost:52089/auth/login/" class="btn secondary">تسجيل الدخول</a>
+      </div>
+    </div>
+
+<div class="hero-image">
+<img 
+  src="assets/images/doctor.svg" 
+  alt="DentLink طبيب أسنان"
+  width="500px"
+  height="400px"
+  loading="eager"
+  fetchpriority="high"
+>
+  </div>
+  </div>
+</section>
+<section id="categories" class="container">
+<h2 class="section-title">الفئات</h2>
+  <div class="cases">
+
+<div class="case-card" data-link="http://localhost:52089/nav/home">  
+ 
+  <img src="assets/images/Periodontics.webp" alt="DentLink" loading="lazy">
+  <div class="case-content">
+
+  <h3>النسج حول السنية</h3>
+<p>تشخيص ومعالجة أمراض اللثة والأنسجة الداعمة للأسنان للحفاظ على صحتها واستقرارها.</p> 
+    <span class="click-hint">اضغط للتفاصيل</span>
+ 
+</div>
+ </div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home">   
+
+  <img src="assets/images/Endodontics.webp" alt="DentLink" loading="lazy">
+           <div class="case-content">
+
+  <h3>المداواة اللبية</h3>
+<p>علاج لب الأسنان (العصب) وإزالة الالتهابات للحفاظ على السن ومنع القلع.</p> 
+    <span class="click-hint">اضغط للتفاصيل</span>
+ 
+</div>
+ </div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home"> 
+
+  <img src="assets/images/Conservative Dentistry.webp" alt="DentLink" loading="lazy">
+       
+  <div class="case-content">
+
+  <h3>المداواة المحافظة</h3>
+<p>ترميم الأسنان المتضررة باستخدام الحشوات التجميلية ومعالجة النخور المبكرة.</p>
+    <span class="click-hint">اضغط للتفاصيل</span>
+
+  </div>
+  </div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home">   
+
+  <img src="assets/images/Removable Prosthodontics.webp" alt="DentLink" loading="lazy">
+          <div class="case-content">
+
+  <h3>التعويضات المتحركة</h3>
+<p>تصميم أطقم جزئية أو كاملة لتعويض الأسنان المفقودة وتحسين الوظيفة والمظهر.</p>
+    <span class="click-hint">اضغط للتفاصيل</span>
+ 
+</div>
+  </div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home/nav/?tab=referrals">   
+   <img src="assets/images/Gum Diseases.webp" alt="DentLink" loading="lazy">
+     <div class="case-content">
+
+    <h3>حالات أمراض اللثة</h3>
+    <p>تنظيف عميق، معالجة الجيوب اللثوية، وتقييم اللثة.</p>
+      <span class="click-hint">اضغط للتفاصيل</span>
+
+  </div>
+
+  </div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home">   
+   <img src="assets/images/Fixed Prosthodontics.webp" alt="DentLink" loading="lazy">
+       <div class="case-content">
+
+   <h3>التعويضات الثابتة</h3>
+<p>تيجان وجسور ثابتة لتعويض الأسنان التالفة أو المفقودة واستعادة الوظيفة الطبيعية.</p>  
+    <span class="click-hint">اضغط للتفاصيل</span>
+ 
+</div>
+
+</div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home">  
+    <img src="assets/images/Pediatric Dentistry.webp" alt="DentLink" loading="lazy">
+       <div class="case-content">
+
+    <h3>طب أسنان الاطفال</h3>
+<p>علاج أسنان الأطفال بما يشمل الحشوات والعلاجات اللبية والحفاظ على نمو سليم للأسنان.</p> 
+    <span class="click-hint">اضغط للتفاصيل</span>
+
+</div>
+</div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home">  
+
+  <img src="assets/images/Oral Diseases.webp" alt="DentLink" loading="lazy">
+             <div class="case-content">
+ 
+  <h3>أمراض الفم</h3>
+<p>تشخيص الحالات المرضية في الفم مثل التقرحات والآفات الفموية ومتابعتها.</p> 
+    <span class="click-hint">اضغط للتفاصيل</span>
+
+</div>
+  </div>
+
+<div class="case-card" data-link="http://localhost:52089/nav/home"> 
+  
+  <img src="assets/images/Extraction.webp" alt="DentLink" loading="lazy">
+           <div class="case-content">
+ 
+  <h3>القلع</h3>
+<p>إجراء قلع الأسنان البسيط أو الجراحي بما في ذلك أضراس العقل والحالات المعقدة.</p> 
+    <span class="click-hint">اضغط للتفاصيل</span>
+ 
+</div>
+ </div>
+  </div>
+
+  
+</section>
+<section id="how-it-works" class="way-section">
+<!-- <h2 class="section-title">كيف يعمل</h2> -->
+
+  <div class="container way-image">
+    <picture>
+      <!-- Use portrait when screen ≤ 600px -->
+       
+      <source srcset="assets/images/portrait-way-ar.svg" media="(max-width: 600px)">
+      
+      <!-- Default (desktop / landscape) -->
+    <img src="assets/images/landscape-way-ar.svg" alt="DentLink طريقة العمل">
+
+    </picture>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <div class="container about-grid">
+    
+<div class="about-image">
+  <lottie-player 
+    id="lottieAbout"
+    src="assets/animations/doctor_animation.json"
+    speed="1"
+    autoplay
+    loop>
+  </lottie-player>
+</div>
+    <div class="about-content">
+      <h2>من نحن</h2>
+      <p>
+        تطبيق DentLink هو تطبيق خَدًمي, مجتمعي يربط طلاب طب الأسنان بمرضى حقيقيين
+        يحتاجون إلى علاجات سنية، بهدف تسهيل استكمال المتطلبات السريرية
+        بشكل منظم وآمن وتحت إشراف أكاديمي.
+      </p>
+
+           <p>
+            نهتم بشكل أساسي بطالب طب الاسنان و تحقيق كل ما يوفر له سبل الراحة لإنجاز أعماله .
+      </p>
+      <p>
+        نسعى إلى تقليل معاناة الطلاب في البحث عن حالات مناسبة،
+        وتوفير تجربة مهنية تضمن الفائدة المتبادلة بين الطالب والمريض.
+      </p>
+
+      <div class="about-stats">
+        <div class="stat">
+          <h3>500+</h3>
+          <span>حالة متاحة</span>
+        </div>
+
+        <div class="stat">
+          <h3>300+</h3>
+          <span>طالب مسجل</span>
+        </div>
+
+        <div class="stat">
+          <h3>100%</h3>
+          <span>آمن ومنظم</span>
+        </div>
+      </div>
+
+      <!-- <a href="#" class="btn primary">انضم إلينا</a> -->
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer id="contact" class="footer">
+  <div class="container footer-container">
+
+    <!-- Social Icons -->
+<div class="footer-social">
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share/1DbMnvzzHb/" class="social-icon" aria-label="Facebook">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5H15c-1.3 0-1.7.8-1.7 1.6V12H17l-.5 3h-3.2v7A10 10 0 0022 12z"/>
+    </svg>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s" class="social-icon" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm5.2 14.3c-.2.6-1.1 1.1-1.5 1.2-.4.1-.9.2-1.5 0-3.6-1.2-6-5.1-6.2-5.4-.2-.3-1.5-2-.9-3 .3-.6.7-.9 1-.9h.7c.2 0 .4 0 .5.3.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.4-.2.6.1.2.6 1 1.3 1.6.9.8 1.6 1 1.9 1.1.2.1.4 0 .6-.2.2-.2.6-.7.8-1 .2-.3.4-.2.6-.1.2.1 1.4.7 1.6.8.2.1.3.2.3.3 0 .1 0 .6-.2 1.2z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/dentlink.sy?igsh=MTVldDR5NHVzc2Rl" class="social-icon" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6.5-.3a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4zM12 9a3 3 0 100 6 3 3 0 000-6z"/>
+    </svg>
+  </a>
+
+  <!-- Phone -->
+  <a href="tel:+963953300302" class="social-icon" aria-label="Call">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.9.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.3 22 2 13.7 2 3c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.7.6 3.9.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+    </svg>
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:dentlink.support@gmail.com" class="social-icon" aria-label="Email">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M2 4h20v16H2V4zm10 9L4 6v12h16V6l-8 7z"/>
+    </svg>
+  </a>
+
+</div>
+
+    <!-- Footer Links -->
+    <div class="footer-links">
+    <a href="privacy-ar.html" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a>
+    <a href="faqs-ar.html" target="_blank" rel="noopener noreferrer">الأسئلة الأكثر شيوعًا</a>
+    <a href="terms-ar.html" target="_blank" rel="noopener noreferrer">الشروط والأحكام</a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      جميع الحقوق محفوظة © 2026 DentLink
+    </div>
+
+  </div>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="js/main.js" defer></script>
+
+</body>
+</html>
