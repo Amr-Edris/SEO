@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateFooterLinks(theme) {
     document.querySelectorAll(".footer-links a").forEach(link => {
       const baseUrl = link.getAttribute("href").split("?")[0];
-      const url = new URL(baseUrl, window.location.origin);
+      const url = new URL(BASE_PATH + baseUrl, window.location.origin);
 
       url.searchParams.set("theme", theme);
       link.href = url.toString();
