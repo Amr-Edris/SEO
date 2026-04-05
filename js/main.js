@@ -1,4 +1,4 @@
-
+const BASE_PATH = "/SEO";
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
@@ -139,9 +139,9 @@ if (burger && nav && overlay) {
       const isArabicPage = window.location.pathname.includes("/ar/");
 
       if (isArabicPage) {
-      window.location.href = `/en/index.html${query}`;
+      window.location.href = `${BASE_PATH}/en/index.html${query}`;
       } else {
-      window.location.href = `/ar/index.html${query}`;
+      window.location.href = `${BASE_PATH}/ar/index.html${query}`;
       }
     });
   }
