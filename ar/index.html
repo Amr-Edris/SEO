@@ -8,18 +8,12 @@
 <title>DentLink | حجز الحالات السريرية بسهولة</title>
 
 <script>
-  (function () {
+(function () {
   const params = new URLSearchParams(window.location.search);
-
-  const urlTheme = params.get("theme");
   const savedTheme = localStorage.getItem("theme");
+  const theme = params.get("theme") || savedTheme || "light";
 
-  const theme = urlTheme || savedTheme || "light";
-
-  document.documentElement.classList.remove("dark", "light");
   document.documentElement.classList.add(theme);
-
-  localStorage.setItem("theme", theme);
 })();
 </script>
 <!-- CSS -->
@@ -123,9 +117,8 @@ student, dentist, dental, care, tooth, teeth,
       <a href="#how-it-works">كيف يعمل</a>
       <a href="#about">من نحن</a>
       <a href="#contact">اتصل بنا</a>
-        <a href="http://localhost:52089/auth/login/"class="auth-btn">تسجيل الدخول</a>
-        <a href="http://localhost:52089/auth/register/"class="auth-btn" >إنشاء حساب</a>
-
+        <a href="http://localhost:52089/auth/register/" class="auth-btn btn primary">إنشاء حساب</a>
+        <a href="http://localhost:52089/auth/login/" class="auth-btn btn secondary">تسجيل الدخول</a>
 </nav>
  
         <div class="logo">
@@ -147,7 +140,7 @@ student, dentist, dental, care, tooth, teeth,
       <h1>حجز حالاتك السريرية بسهولة – موقع واحد يجمع كل الحالات</h1>
       <p>
         تواصل مع مرضى حقيقيين بحاجة لعلاج الأسنان أثناء استكمال متطلباتك السريرية
-        بشكل آمن تحت إشراف ومفيد للجميع.
+        بشكل آمن وتحت إشراف اكاديمي.
       </p>
 
       <div class="hero-buttons">
