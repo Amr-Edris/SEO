@@ -95,7 +95,7 @@ img {
   align-items: center;
 }
 
-.nav-links a {
+.nav-links a:not(.auth-btn) {
   position: relative;
   text-decoration: none;
   color: var(--white);
@@ -104,7 +104,7 @@ img {
   transition: color 0.3s ease;
 }
 
-.nav-links a::after {
+.nav-links a:not(.auth-btn)::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -115,11 +115,11 @@ img {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after {
+.nav-links a:not(.auth-btn):hover::after {
   width: 100%;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.auth-btn):hover {
   color: var(--secondary-color);
 }
 
@@ -130,9 +130,8 @@ img {
   gap: 5px;
 }
 
-.auth-btn{
-  display: none;
-}
+
+
 
 hr{
   display: none;
@@ -512,7 +511,9 @@ section {
   visibility: visible;
   pointer-events: auto;
 }
-
+.auth-btn{
+  display: none;
+}
 /* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px);}
@@ -572,13 +573,15 @@ section {
 
  .auth-btn{
   display: block;
+  width: 100%;
+  text-align: center;
  }
 .nav-links hr{
   display: block;
   width: 200px;
   background-color: var(--secondary-color);
 }
-  .nav-links a {
+  .nav-links a:not(.auth-btn) {
     color: white;
     font-size: 18px;
     width: 100%;
@@ -601,7 +604,7 @@ section {
 .header-actions{
   width: 200px;
 }
-  .nav-links a.active::after {
+.nav-links a.active::after {
   content: "";
   width: fit-content;
 }
