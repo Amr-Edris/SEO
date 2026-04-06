@@ -5,31 +5,35 @@
   <title>Loading...</title>
 
   <script>
-    const BASE_PATH = "/SEO";
-    const params = new URLSearchParams(window.location.search);
+    (function () {
+      const params = new URLSearchParams(window.location.search);
 
-    const lang =
-      params.get("lang") ||
-      localStorage.getItem("lang") ||
-      (navigator.language.startsWith("en") ? "en" : "ar");
+      let lang =
+        params.get("lang") ||
+        localStorage.getItem("lang") ||
+        (navigator.language.startsWith("en") ? "en" : "ar");
 
-    const theme =
-      params.get("theme") ||
-      localStorage.getItem("theme") ||
-      "light";
+      let theme =
+        params.get("theme") ||
+        localStorage.getItem("theme") ||
+        "light";
 
-    localStorage.setItem("lang", lang);
-    localStorage.setItem("theme", theme);
+      // Validate language
+      if (lang !== "en" && lang !== "ar") {
+        lang = "ar";
+      }
 
-    // Validate language (in case of wrong links)
-    if (lang !== "en" && lang !== "ar") {
-      lang = "ar"; // fallback default
-    }
+      try {
+        localStorage.setItem("lang", lang);
+        localStorage.setItem("theme", theme);
+      } catch (e) {
+        // Ignore storage errors
+      }
 
+      const page = lang === "en" ? "/en/" : "/ar/";
 
-    const page = lang === "en" ? "/en/" : "/ar/";
-
-    window.location.replace(`${BASE_PATH}${page}?theme=${theme}`);
+      window.location.replace(`${page}?theme=${theme}`);
+    })();
   </script>
 </head>
 <body>
