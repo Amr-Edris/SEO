@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>موقع تجريبي - تجهيزات طبية</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f7fb;
+    color: #222;
+}
+
+.dark {
+    background: #0f172a;
+    color: #fff;
+}
+
+header {
+    background: #0d6efd;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.section {
+    padding: 40px;
+    text-align: center;
+}
+
+.hero {
+    background: linear-gradient(to right, #0d6efd, #3b82f6);
+    color: white;
+    padding: 80px 20px;
+}
+
+.grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dark .card {
+    background: #1e293b;
+}
+
+footer {
+    background: #0d6efd;
+    color: white;
+    padding: 30px;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    background: white;
+    color: #0d6efd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div>🔷 شركة طبية</div>
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#">المنتجات</a>
+        <a href="#">من نحن</a>
+        <a href="#">تواصل</a>
+    </nav>
+    <button onclick="toggleDark()">🌙</button>
+</header>
+
+<div class="hero">
+    <h1>حلول متكاملة للتجهيزات الطبية</h1>
+    <p>نقدم أفضل الأجهزة والخدمات بجودة عالية</p>
+</div>
+
+<div class="section">
+    <h2>📰 آخر الأخبار</h2>
+    <p>تم تنفيذ مشروع جديد لتجهيز مستشفى بالكامل</p>
+</div>
+
+<div class="section">
+    <h2>📦 أقسام المنتجات</h2>
+    <div class="grid">
+        <div class="card">أجهزة أكسجين</div>
+        <div class="card">معدات طبية</div>
+        <div class="card">مستلزمات</div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>🖼️ معرض الأعمال</h2>
+    <p>صور وفيديوهات المشاريع</p>
+</div>
+
+<div class="section">
+    <h2>🤝 من يثق بنا</h2>
+    <p>مستشفيات ومراكز طبية</p>
+</div>
+
+<div class="section">
+    <h2>🏢 من نحن</h2>
+    <p>شركة متخصصة بالتجهيزات الطبية</p>
+    <p>✔️ 100+ مشروع | ✔️ 50 عميل</p>
+</div>
+
+<div class="section">
+    <h2>🏅 الشهادات</h2>
+    <p>ISO - CE</p>
+</div>
+
+<footer>
+    <p>📞 تواصل معنا: example@email.com</p>
+    <p>📍 موقعنا: رابط الموقع</p>
+</footer>
+
+<script>
+function toggleDark() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
