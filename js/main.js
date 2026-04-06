@@ -1,4 +1,4 @@
-const BASE_PATH = "/SEO";
+const BASE_PATH = "";
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
@@ -35,15 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* 🔥 UPDATE FOOTER LINKS (NO REFRESH FIX) */
-  function updateFooterLinks(theme) {
-    document.querySelectorAll(".footer-links a").forEach(link => {
-      const baseUrl = link.getAttribute("href").split("?")[0];
-      const url = new URL(BASE_PATH + baseUrl, window.location.origin);
+function updateFooterLinks(theme) {
+  document.querySelectorAll(".footer-links a").forEach(link => {
+    let baseUrl = link.getAttribute("href");
 
-      url.searchParams.set("theme", theme);
-      link.href = url.toString();
-    });
-  }
+    if (!baseUrl) return;
+
+    // Remove existing query params
+    baseUrl = baseUrl.split("?")[0];
+
+    // Ensure correct absolute path under /SEO
+    const url = new URL(BASE_PATH + baseUrl, window.location.origin);
+
+    url.searchParams.set("theme", theme);
+    link.href = url.toString();
+  });
+}
 
   applyTheme(theme);
   updateFooterLinks(theme);
@@ -190,3 +197,4 @@ document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
     setTimeout(setActiveNav, 0);
   });
 });
+
