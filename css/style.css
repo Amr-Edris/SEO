@@ -608,6 +608,12 @@ section {
   content: "";
   width: fit-content;
 }
+  .nav-links-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0px; 
+}
 }
 
 
