@@ -9,18 +9,12 @@
 <title>DentLink | Book Clinical Dental Cases Easily</title>
 
 <script>
-  (function () {
+(function () {
   const params = new URLSearchParams(window.location.search);
-
-  const urlTheme = params.get("theme");
   const savedTheme = localStorage.getItem("theme");
+  const theme = params.get("theme") || savedTheme || "light";
 
-  const theme = urlTheme || savedTheme || "light";
-
-  document.documentElement.classList.remove("dark", "light");
   document.documentElement.classList.add(theme);
-
-  localStorage.setItem("theme", theme);
 })();
 </script>
 <!-- CSS -->
@@ -115,8 +109,8 @@ main page, home, landing page, privacy policy
       <a href="#how-it-works"onclick="setActiveNav()">How it works</a>
       <a href="#about"onclick="setActiveNav()">About</a>
       <a href="#contact"onclick="setActiveNav()">Contact</a>
-      <a href="http://localhost:52089/auth/login/"class="auth-btn">Login</a>
-      <a href="http://localhost:52089/auth/register/"class="auth-btn">Sign Up</a>
+      <a href="http://localhost:52089/auth/login/"class="auth-btn btn primary">Sign Up</a>
+      <a href="http://localhost:52089/auth/register/"class="auth-btn btn secondary">Login</a>
 
 
     </nav>
@@ -148,7 +142,7 @@ main page, home, landing page, privacy policy
       </p>
 
       <div class="hero-buttons">
-        <a href="http://localhost:52089/auth/register/" class="btn primary">Create Account</a>
+        <a href="http://localhost:52089/auth/register/" class="btn primary">Sign Up</a>
         <a href="http://localhost:52089/auth/login/" class="btn secondary">Login</a>
       </div>
     </div>
