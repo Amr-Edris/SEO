@@ -15,6 +15,21 @@
   const theme = params.get("theme") || savedTheme || "light";
 
   document.documentElement.classList.add(theme);
+  /* ================= SCROLL ================= */
+
+  // Save scroll before leaving the page
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("scrollPos", window.scrollY);
+  });
+
+  // Restore scroll on load
+  window.addEventListener("load", () => {
+    const scrollPos = localStorage.getItem("scrollPos");
+    if (scrollPos !== null) {
+      window.scrollTo(0, parseInt(scrollPos, 10));
+    }
+  });
+
 })();
 </script>
 <!-- CSS -->
@@ -109,9 +124,11 @@ main page, home, landing page, privacy policy
       <a href="#how-it-works"onclick="setActiveNav()">How it works</a>
       <a href="#about"onclick="setActiveNav()">About</a>
       <a href="#contact"onclick="setActiveNav()">Contact</a>
+           <div class="nav-links-bottom">
+
       <a href="http://localhost:52089/auth/login/"class="auth-btn btn primary">Sign Up</a>
       <a href="http://localhost:52089/auth/register/"class="auth-btn btn secondary">Login</a>
-
+           </div>
 
     </nav>
 
