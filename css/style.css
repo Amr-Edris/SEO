@@ -601,6 +601,10 @@ section {
 .header-actions{
   width: 200px;
 }
+  .nav-links a.active::after {
+  content: "";
+  width: fit-content;
+}
 }
 
 
