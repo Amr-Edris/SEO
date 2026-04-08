@@ -1,4 +1,4 @@
-const BASE_PATH = "/SEO";
+const BASE_PATH = "";
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
@@ -197,6 +197,8 @@ document.querySelectorAll(".nav-links a[href^='#']").forEach(link => {
     setTimeout(setActiveNav, 0);
   });
 });
+
+
 // document.addEventListener("DOMContentLoaded", () => {
 
 //   const BASE_PATH = "";
