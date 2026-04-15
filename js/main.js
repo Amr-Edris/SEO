@@ -1,4 +1,4 @@
-const BASE_PATH = "SEO/";
+const BASE_PATH = "";
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
