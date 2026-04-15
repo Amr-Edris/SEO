@@ -1,4 +1,4 @@
-const BASE_PATH = "";
+const BASE_PATH = "SEO/";
 
 const params = new URLSearchParams(window.location.search);
 
