@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dentlink.sy/seo/sitemap.xml
+# Block sensitive or unnecessary areas (adjust if needed)
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /api/
+Disallow: /private/
+Disallow: /dashboard/
+
+# Flutter app (IMPORTANT NOTE BELOW)
+Allow: /app/
+
+# Sitemap location
+Sitemap: https://dentlink.sy/sitemap.xml
