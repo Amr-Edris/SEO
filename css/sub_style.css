@@ -117,6 +117,7 @@ ul {
     grid-template-columns: auto 1fr auto;
     align-items: center;
     width: 100%;
+    gap: 2px;
 }
 
 .header-row h1 {
@@ -143,14 +144,7 @@ ul {
     cursor: pointer;
     font-size: 20px;
 }
+
 .back-btn:hover {
     opacity: 0.9;
-}
-
-@media (max-width: 600px) {
-
-.header h1{
-    text-align: center;
-}
-
 }

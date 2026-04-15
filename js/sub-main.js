@@ -43,10 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (isArabicPage) {
                 // Arabic → right-to-left, back arrow points right
-                btn.textContent = "←";
+                btn.textContent = "رجوع";
             } else {
                 // English → left-to-right
-                btn.textContent = "→";
+                btn.textContent = "Back";
             }
 
             // Optional: add label instead of only arrow

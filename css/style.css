@@ -2,6 +2,7 @@
   font-family: 'Cairo';
   src: url('../assets/fonts/Cairo.woff2') format('woff2');
   font-display: swap;
+  
 }
 
 :root {
@@ -497,7 +498,7 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-height: 100vh;
+  height: 100%;
   background: rgba(0,0,0,0.4);
   opacity: 0;
   visibility: hidden;
@@ -514,6 +515,145 @@ height: 100vh;
 .auth-btn{
   display: none;
 }
+.pricing-section {
+  padding: 40px 0;
+}
+
+.pricing-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Base card */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: calc(33.333% - 40px); 
+   background: var(--card-color);
+  border-radius: var(--radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+
+}
+
+.pricing-card h3 {
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0 20px;
+}
+
+.price span {
+  font-size: 14px;
+  color: var(--grey-2);
+}
+
+/* Features list */
+.pricing-card ul {
+  list-style: none;
+  text-align: start;
+  color: var(--grey-2);
+  line-height: 2.4;
+}
+.pricing-card ul li {
+  margin-bottom: 6px;
+}
+.pricing-card ul li::before {
+  content: "✔";
+  color: var(--secondary-color);
+  margin-inline-end: 8px;
+
+}
+
+/* Button */
+.pricing-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--secondary-color);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  background: linear-gradient(135deg, #62784d, #3E5B20);
+
+}
+.pricing-section .section-title {
+  margin-bottom: 50px;
+    margin-top: 20px;
+
+}
+.disabled{
+  opacity: .6;
+  filter: grayscale(20%);
+  pointer-events: none;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #acaaab, #464646);
+}
+/* =========================
+   FEATURED CARD (GRADIENT)
+========================= */
+
+.featured {
+  border: none;
+  transform: scale(1.0) translateY(-20px);
+  z-index: 2;
+}
+
+/* Gradient border */
+.featured::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: calc(var(--radius) + 3px);
+  z-index: -1;
+}
+.featured button {
+  background: linear-gradient(135deg, #FF7043, #FF5F8F);
+
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #FF7043, #FF5F8F);
+  color: white;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.pricing-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* THIS is the magic */
+}
 /* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px);}
@@ -521,7 +661,7 @@ height: 100vh;
 }
 
 /* Responsive */
-@media (max-width: 800px) {
+@media (max-width: 870px) {
 
 
   .nav {
@@ -586,6 +726,7 @@ height: 100vh;
     font-size: 18px;
     width: 100%;
   }
+
   .burger {
     display: flex;
     z-index: 1001;
@@ -608,11 +749,45 @@ height: 100vh;
   content: "";
   width: fit-content;
 }
-  .nav-links-bottom {
+.nav-links-bottom {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0px; 
+}
+  .pricing-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing-card {
+    flex: 1 1 100%;
+    max-width: 100% !important;
+    width: 100%;
+  }
+
+   .pricing-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .pricing-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .price {
+    margin: 0;
+    font-size: 20px;
+  }
+  .pricing-btn {
+  max-width: 200px;
+    align-self: flex-end; /* correct way */
+  }
+  .featured {
+  transform: scale(1);
 }
 }
 

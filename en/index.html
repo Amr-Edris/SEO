@@ -17,19 +17,31 @@
   document.documentElement.classList.add(theme);
   /* ================= SCROLL ================= */
 
-  // Save scroll before leaving the page
+  // // Save scroll before leaving the page
+  // window.addEventListener("beforeunload", () => {
+  //   localStorage.setItem("scrollPos", window.scrollY);
+  // });
+
+  // // Restore scroll on load
+  // window.addEventListener("load", () => {
+  //   const scrollPos = localStorage.getItem("scrollPos");
+  //   if (scrollPos !== null) {
+  //     window.scrollTo(0, parseInt(scrollPos, 10));
+  //   }
+  // });
+  const key = "scroll-" + location.pathname;
+
   window.addEventListener("beforeunload", () => {
-    localStorage.setItem("scrollPos", window.scrollY);
+    sessionStorage.setItem(key, window.scrollY);
   });
 
-  // Restore scroll on load
   window.addEventListener("load", () => {
-    const scrollPos = localStorage.getItem("scrollPos");
+    const scrollPos = sessionStorage.getItem(key);
+
     if (scrollPos !== null) {
       window.scrollTo(0, parseInt(scrollPos, 10));
     }
   });
-
 })();
 </script>
 <!-- CSS -->
@@ -52,22 +64,24 @@ main page, home, landing page, privacy policy
 <meta name="author" content="DentLink">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://dentlink.sy/landing-en">
-<link rel="alternate" hreflang="ar" href="https://dentlink.sy/landing-ar">
-<link rel="alternate" hreflang="en" href="https://dentlink.sy/landing-en">
+<link rel="canonical" href="https://dentlink.sy/en/">
+<link rel="alternate" hreflang="x-default" href="https://dentlink.sy/">
+<link rel="alternate" hreflang="en" href="https://dentlink.sy/en/">
+<link rel="alternate" hreflang="ar" href="https://dentlink.sy/ar/">
 
 <!-- Open Graph -->
 <meta property="og:title" content="DentLink - Book Clinical Dental Cases">
 <meta property="og:description" content="A platform that connects dental students with clinical cases in one place.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="../assets/images/logo.png">
-<meta property="og:url" content="https://dentlink.sy/landing-en">
-
+<meta property="og:image" content="https://dentlink.sy/assets/images/logo.png">
+<meta property="og:url" content="https://dentlink.sy/en/">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="DentLink">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DentLink">
 <meta name="twitter:description" content="Book clinical dental cases easily">
-<meta name="twitter:image" content="https://dentlink.sy/../assets/images/logo.png">
+<meta name="twitter:image" content="https://dentlink.sy/assets/images/logo.png">
 
 <!-- Theme -->
 <meta name="theme-color" content="#3E5B20">
@@ -88,12 +102,21 @@ main page, home, landing page, privacy policy
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "DentLink",
-  "url": "https://dentlink.sy/landing-en",
+  "url": "https://dentlink.sy/en/",
   "description": "Platform for booking clinical dental cases for students",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://dentlink.sy/landing-en/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DentLink",
+    "url": "https://dentlink.sy/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DentLink",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dentlink.sy/assets/images/logo.png"
+    }
   }
 }
 </script>
@@ -119,13 +142,14 @@ main page, home, landing page, privacy policy
 
       <a href="#home"onclick="setActiveNav()">Home</a>
       <a href="#categories"onclick="setActiveNav()">Categories</a>
+      <a href="#pricing-section">Plans</a>
       <a href="#how-it-works"onclick="setActiveNav()">How it works</a>
       <a href="#about"onclick="setActiveNav()">About</a>
       <a href="#contact"onclick="setActiveNav()">Contact</a>
            <div class="nav-links-bottom">
 
-      <a href="http://localhost:52089/auth/login/"class="auth-btn btn primary">Sign Up</a>
-      <a href="http://localhost:52089/auth/register/"class="auth-btn btn secondary">Login</a>
+      <a href="https://dentlink.sy/app/auth/register/"class="auth-btn btn primary">Sign Up</a>
+      <a href="https://dentlink.sy/app/auth/login/"class="auth-btn btn secondary">Login</a>
            </div>
 
     </nav>
@@ -157,8 +181,8 @@ main page, home, landing page, privacy policy
       </p>
 
       <div class="hero-buttons">
-        <a href="http://localhost:52089/auth/register/" class="btn primary">Sign Up</a>
-        <a href="http://localhost:52089/auth/login/" class="btn secondary">Login</a>
+        <a href="https://dentlink.sy/app/auth/register/" class="btn primary">Sign Up</a>
+        <a href="https://dentlink.sy/app/auth/login/" class="btn secondary">Login</a>
       </div>
     </div>
 
@@ -181,7 +205,7 @@ main page, home, landing page, privacy policy
 
   <div class="cases">
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Periodontics.webp" alt="DentLink Periodontics" loading="lazy">
       <div class="case-content">
         <h3>Periodontics</h3>
@@ -189,8 +213,7 @@ main page, home, landing page, privacy policy
         <span class="click-hint">Click for details</span>
       </div>
     </div>
-
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Endodontics.webp" alt="DentLink Endodontics" loading="lazy">
       <div class="case-content">
         <h3>Endodontics</h3>
@@ -199,7 +222,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Conservative Dentistry.webp" alt="DentLink Conservative Dentistry" loading="lazy">
       <div class="case-content">
         <h3>Conservative Dentistry</h3>
@@ -208,7 +231,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Removable Prosthodontics.webp" alt="DentLink Prosthodontics" loading="lazy">
       <div class="case-content">
         <h3>Removable Prosthodontics</h3>
@@ -217,7 +240,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home/nav/?tab=referrals">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home/nav/?tab=referrals">
       <img src="../assets/images/Gum Diseases.webp" alt="DentLink Gum Diseases" loading="lazy">
       <div class="case-content">
         <h3>Gum Diseases</h3>
@@ -226,7 +249,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Fixed Prosthodontics.webp" alt="DentLink Fixed Prosthodontics" loading="lazy">
       <div class="case-content">
         <h3>Fixed Prosthodontics</h3>
@@ -235,7 +258,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Pediatric Dentistry.webp" alt="DentLink Pediatric Dentistry" loading="lazy">
       <div class="case-content">
         <h3>Pediatric Dentistry</h3>
@@ -244,7 +267,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Oral Diseases.webp" alt="DentLink Oral Diseases" loading="lazy">
       <div class="case-content">
         <h3>Oral Diseases</h3>
@@ -253,7 +276,7 @@ main page, home, landing page, privacy policy
       </div>
     </div>
 
-    <div class="case-card" data-link="http://localhost:52089/nav/home">
+    <div class="case-card" data-link="https://dentlink.sy/app/nav/home">
       <img src="../assets/images/Extraction.webp" alt="DentLink Extraction" loading="lazy">
       <div class="case-content">
         <h3>Extraction</h3>
@@ -273,7 +296,76 @@ main page, home, landing page, privacy policy
     </picture>
   </div>
 </section>
+<section id="pricing-section" class="pricing-section">
+  <h2 class="section-title">Pricing Plans</h2>
 
+  <div class="container pricing-wrapper">
+
+    <!-- Basic -->
+    <div class="pricing-card">
+      <div class="pricing-content">
+
+        <div class="pricing-header">
+          <h3>Basic Plan</h3>
+          <div class="price">$3</div>
+        </div>
+
+        <ul>
+          <li>1+ referral credit in your account</li>
+          <li>Access to all available cases</li>
+        </ul>
+      </div>
+
+      <button class="pricing-btn" onclick="window.open('https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s','_blank')">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Featured -->
+    <div class="pricing-card featured">
+      <div class="badge">Recommended</div>
+
+      <div class="pricing-content">
+
+        <div class="pricing-header">
+          <h3>Advanced Plan</h3>
+          <div class="price">$6</div>
+        </div>
+
+        <ul>
+          <li>2+ referral credits in your account</li>
+          <li>Priority request processing</li>
+          <li>Priority customer support</li>
+        </ul>
+      </div>
+
+      <button class="pricing-btn primary-btn" onclick="window.open('https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s','_blank')">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Pro -->
+    <div class="pricing-card">
+      <div class="pricing-content">
+
+        <div class="pricing-header">
+          <h3>Professional Plan</h3>
+          <div class="price">$12</div>
+        </div>
+
+        <ul>
+          <li>3+ referral credits in your account</li>
+          <li>Unlimited access to cases</li>
+        </ul>
+      </div>
+
+      <button class="pricing-btn" onclick="window.open('https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s','_blank')">
+        Get Started
+      </button>
+    </div>
+
+  </div>
+</section>
 <section id="about" class="about-section">
   <div class="container about-grid">
 

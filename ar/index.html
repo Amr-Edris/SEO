@@ -16,19 +16,32 @@
   document.documentElement.classList.add(theme);
   /* ================= SCROLL ================= */
 
-  // Save scroll before leaving the page
+  // // Save scroll before leaving the page
+  // window.addEventListener("beforeunload", () => {
+  //   localStorage.setItem("scrollPos", window.scrollY);
+  // });
+
+  // // Restore scroll on load
+  // window.addEventListener("load", () => {
+  //   const scrollPos = localStorage.getItem("scrollPos");
+  //   if (scrollPos !== null) {
+  //     window.scrollTo(0, parseInt(scrollPos, 10));
+  //   }
+  // });
+  // Scroll PER PAGE
+  const key = "scroll-" + location.pathname;
+
   window.addEventListener("beforeunload", () => {
-    localStorage.setItem("scrollPos", window.scrollY);
+    sessionStorage.setItem(key, window.scrollY);
   });
 
-  // Restore scroll on load
   window.addEventListener("load", () => {
-    const scrollPos = localStorage.getItem("scrollPos");
+    const scrollPos = sessionStorage.getItem(key);
+
     if (scrollPos !== null) {
       window.scrollTo(0, parseInt(scrollPos, 10));
     }
   });
-
 })();
 </script>
 <!-- CSS -->
@@ -59,16 +72,19 @@ student, dentist, dental, care, tooth, teeth,
 ">
 <meta name="author" content="DentLink">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://dentlink.sy/ar/landing">
-<link rel="alternate" hreflang="ar" href="https://dentlink.sy/ar/landing">
-<link rel="alternate" hreflang="en" href="https://dentlink.sy/en/landing">
+<link rel="canonical" href="https://dentlink.sy/ar/">
+<link rel="alternate" hreflang="x-default" href="https://dentlink.sy/">
+<link rel="alternate" hreflang="ar" href="https://dentlink.sy/ar/">
+<link rel="alternate" hreflang="en" href="https://dentlink.sy/en/">
+
 <!-- Open Graph (Facebook / WhatsApp) -->
 <meta property="og:title" content="DentLink - حجز الحالات السريرية">
 <meta property="og:description" content="موقع يجمع جميع الحالات السنية في مكان واحد">
 <meta property="og:type" content="website">
-<meta property="og:image" content="../assets/images/logo.png">
-<meta property="og:url" content="https://dentlink.sy/ar/landing">
-
+<meta property="og:image" content="https://dentlink.sy/assets/images/logo.png">
+<meta property="og:url" content="https://dentlink.sy/ar/">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:site_name" content="DentLink">
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DentLink">
@@ -97,12 +113,21 @@ student, dentist, dental, care, tooth, teeth,
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "DentLink",
-  "url": "https://dentlink.sy/ar/landing",
-  "description": "منصة لحجز الحالات السريرية لطلاب طب الأسنان",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://dentlink.sy/ar/landing/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+  "url": "https://dentlink.sy/ar/",
+  "description": منصة متخصصة لحجز الحالات السريرية لطلاب طب الأسنان. موقع واحد يجمع جميع الحالات السنية بسهولة وأمان.",
+  "inLanguage": "ar",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "DentLink",
+    "url": "https://dentlink.sy/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DentLink",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dentlink.sy/assets/images/logo.png"
+    }
   }
 }
 </script>
@@ -127,14 +152,15 @@ student, dentist, dental, care, tooth, teeth,
      <hr>
 
       <a href="#home">الرئيسية</a>
-      <a href="#categories">الفثات</a>
+      <a href="#categories">الفئات</a>
+      <a href="#pricing-section">الباقات</a>
       <a href="#how-it-works">كيف يعمل</a>
       <a href="#about">من نحن</a>
       <a href="#contact">اتصل بنا</a>
         <div class="nav-links-bottom">
 
-        <a href="http://localhost:52089/auth/register/" class="auth-btn btn primary">إنشاء حساب</a>
-        <a href="http://localhost:52089/auth/login/" class="auth-btn btn secondary">تسجيل الدخول</a>
+        <a href="https://dentlink.sy/app/auth/register/" class="auth-btn btn primary">إنشاء حساب</a>
+        <a href="https://dentlink.sy/app/auth/login/" class="auth-btn btn secondary">تسجيل الدخول</a>
   </div>
 
       </nav>
@@ -162,8 +188,8 @@ student, dentist, dental, care, tooth, teeth,
       </p>
 
       <div class="hero-buttons">
-        <a href="http://localhost:52089/auth/register/" class="btn primary">إنشاء حساب</a>
-        <a href="http://localhost:52089/auth/login/" class="btn secondary">تسجيل الدخول</a>
+        <a href="https://dentlink.sy/app/auth/register/" class="btn primary">إنشاء حساب</a>
+        <a href="https://dentlink.sy/app/auth/login/" class="btn secondary">تسجيل الدخول</a>
       </div>
     </div>
 
@@ -183,7 +209,7 @@ student, dentist, dental, care, tooth, teeth,
 <h2 class="section-title">الفئات</h2>
   <div class="cases">
 
-<div class="case-card" data-link="http://localhost:52089/nav/home">  
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">  
  
   <img src="../assets/images/Periodontics.webp" alt="DentLink" loading="lazy">
   <div class="case-content">
@@ -195,7 +221,7 @@ student, dentist, dental, care, tooth, teeth,
 </div>
  </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home">   
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
 
   <img src="../assets/images/Endodontics.webp" alt="DentLink" loading="lazy">
            <div class="case-content">
@@ -207,7 +233,7 @@ student, dentist, dental, care, tooth, teeth,
 </div>
  </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home"> 
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
 
   <img src="../assets/images/Conservative Dentistry.webp" alt="DentLink" loading="lazy">
        
@@ -220,7 +246,7 @@ student, dentist, dental, care, tooth, teeth,
   </div>
   </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home">   
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
 
   <img src="../assets/images/Removable Prosthodontics.webp" alt="DentLink" loading="lazy">
           <div class="case-content">
@@ -232,7 +258,7 @@ student, dentist, dental, care, tooth, teeth,
 </div>
   </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home/nav/?tab=referrals">   
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
    <img src="../assets/images/Gum Diseases.webp" alt="DentLink" loading="lazy">
      <div class="case-content">
 
@@ -244,7 +270,7 @@ student, dentist, dental, care, tooth, teeth,
 
   </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home">   
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
    <img src="../assets/images/Fixed Prosthodontics.webp" alt="DentLink" loading="lazy">
        <div class="case-content">
 
@@ -256,7 +282,7 @@ student, dentist, dental, care, tooth, teeth,
 
 </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home">  
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
     <img src="../assets/images/Pediatric Dentistry.webp" alt="DentLink" loading="lazy">
        <div class="case-content">
 
@@ -267,7 +293,7 @@ student, dentist, dental, care, tooth, teeth,
 </div>
 </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home">  
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
 
   <img src="../assets/images/Oral Diseases.webp" alt="DentLink" loading="lazy">
              <div class="case-content">
@@ -279,7 +305,7 @@ student, dentist, dental, care, tooth, teeth,
 </div>
   </div>
 
-<div class="case-card" data-link="http://localhost:52089/nav/home"> 
+<div class="case-card" data-link="https://dentlink.sy/app/nav/home">   
   
   <img src="../assets/images/Extraction.webp" alt="DentLink" loading="lazy">
            <div class="case-content">
@@ -309,7 +335,81 @@ student, dentist, dental, care, tooth, teeth,
     </picture>
   </div>
 </section>
+<section id="pricing-section" class="pricing-section">
+<h2 class="section-title">الباقات</h2>
 
+<div class="container pricing-wrapper">
+
+    <!-- Basic -->
+         <div class="pricing-card">
+            <div class="pricing-content">
+
+               <div class="pricing-header"> 
+
+      <h3>الباقة الأساسية</h3>
+      <div class="price">3$</div>
+</div>
+      <ul>
+        <li>1+ رصيد إحالات في حسابك</li>
+        <li>الوصول لجميع الحالات المتاحة</li>
+      </ul>
+</div>
+
+<button class="pricing-btn" onclick="window.open('https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s','_blank')">
+  ابدأ الاستخدام
+</button>
+    </div>
+
+    <!-- Featured -->
+    <div class="pricing-card featured">
+      <div class="badge">مقترح لك</div>
+      <div class="pricing-content">
+
+     <div class="pricing-header"> 
+
+      <h3>الباقة المتقدمة</h3>
+      <div class="price">6$</div>
+</div>
+
+      <ul>
+        <li>2+ رصيد إحالات في حسابك</li>
+        <li>أولوية معالجة الطلبات</li>
+       <li>أولوية الدعم الفني</li>
+
+      </ul>
+    </div>
+    <button class="pricing-btn primary-btn" onclick="window.open('https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s','_blank')">
+  ابدأ الاستخدام
+</button>
+
+    </div>
+
+    <!-- Pro -->
+    <div class="pricing-card">
+                  <div class="pricing-content">
+
+           <div class="pricing-header"> 
+
+      <h3>الباقة الاحترافية</h3>
+      <div class="price">12$</div>
+    </div>
+
+      <ul>
+        <li>3+ رصيد إحالات في حسابك</li>
+        <li>وصول غير محدود للحالات</li>
+        <!-- <li>ميزة الطلب الخاص</li> -->
+        <!-- <li>ميزة الطلب المستعجل</li> -->
+        <!-- <li>إشعارات مبكرة للحالات الجديدة</li> -->
+      </ul>
+    </div>
+      <!-- <button class="pricing-btn disabled">قريباً</button> -->
+<button class="pricing-btn" onclick="window.open('https://whatsapp.com/channel/0029VbCjuMs4SpkOe85dFg0s','_blank')">
+  ابدأ الاستخدام
+</button>
+    </div>
+
+  </div>
+</section>
 <section id="about" class="about-section">
   <div class="container about-grid">
     
