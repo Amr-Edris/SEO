@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amr Edris</title>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const BASE_PATH = "";
+      let lang =
+        params.get("lang") ||
+        localStorage.getItem("lang") ||
+        (navigator.language.startsWith("en") ? "en" : "ar");
+
+      let theme =
+        params.get("theme") ||
+        localStorage.getItem("theme") ||
+        "light";
+
+      // Validate language
+      if (lang !== "en" && lang !== "ar") {
+        lang = "ar";
+      }
+
+      try {
+        localStorage.setItem("lang", lang);
+        localStorage.setItem("theme", theme);
+      } catch (e) {
+        // Ignore storage errors
+      }
+
+      const page = lang === "en" ? "/en/" : "/ar/";
+
+    window.location.replace(`${BASE_PATH}${page}?theme=${theme}`);
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+  <meta http-equiv="refresh" content="0;url=/ar/">
+  <p><a href="/ar/"></a></p>
+</noscript>
+</body>
+</html>

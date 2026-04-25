@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amr Edris — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Amr Edris."
+    />
+  <link rel="stylesheet" href="../css/style.css">
+
+  </head>
+  <body>
+    
+    <!-- ====== NAV ====== -->
+  <section class="header">
+  <div class="container nav">
+
+    <div class="logo">
+        <a href="#" class="brand">
+          <span class="logo-img">AE</span>
+          <span class="logo-name">Amr Edris</span>
+        </a>
+      </div>
+
+  <nav class="nav-links">
+
+
+      <a href="#home"onclick="setActiveNav()">Home</a>
+      <a href="#projects"onclick="setActiveNav()">Projects</a>
+      <a href="#skills"onclick="setActiveNav()">Skills</a>
+      <a href="#about"onclick="setActiveNav()">About</a>
+      <a href="#contact"onclick="setActiveNav()">Contact</a>
+      <hr>
+<div class="header-actions">
+  <button id="langToggle" class="icon-btn lang-btn">
+    <img src="../assets/icons/language.svg" alt="language" />
+    <span id="langText">AR</span>
+  </button>
+
+  <button id="themeToggle" class="icon-btn theme-btn">
+    <img id="themeIcon" src="../assets/icons/dark.svg" alt="theme" />
+  </button>
+</div>
+    </nav>
+
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</section>
+<div id="overlay"></div>
+
+<main>
+    <!-- ====== HERO ====== -->
+    <header id="home" class="fade container hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Flutter Cross-Platform Developer</div>
+          <h1>
+            Building high-quality cross-platform applications with Flutter.
+          </h1>
+          <p class="lead">
+Computer Engineering graduate and Flutter Developer specializing in building scalable cross-platform applications for Android, iOS, Web, and Windows. Experienced in Flutter, Firebase, and REST API integrations with strong knowledge of backend systems using Django. Proven problem-solving ability demonstrated through multiple ICPC competitive programming achievements at regional and national levels. Passionate about developing high-performance, user-focused mobile, SaaS applications and continuously learning new technologies.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact" aria-label="Contact Amr"
+              >Contact Me</a
+            >
+          </div>
+        </div>
+        <div class="card" aria-hidden="true">
+          <div class="avatar">
+                <img src="../assets/images/profile.png" alt="Amr profile photo" />
+
+          </div>
+          <div class="badge">Open to work</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ====== PROJECTS ====== -->
+    <section id="projects" class="fade container">
+      <div class="section-title">
+        <span class="dot"></span>
+        <h2>Projects</h2>
+      </div>
+  <div class="grid" id="projectsGrid"></div>   
+    </section>
+<section id="skills" class="fade container">
+  <div class="section-title">
+    <span class="dot"></span>
+    <h2>Skills</h2>
+  </div>
+
+  <div class="skills-grid" id="skillsList"></div>
+</section>
+    <!-- ====== ABOUT ====== -->
+<section id="about" class="fade container">
+  <div class="section-title">
+    <span class="dot"></span>
+    <h2>About Me</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <!-- Personal Info -->
+    <div class="about-card">
+      <h3>Personal Info</h3>
+      <ul>
+        <li>Aleppo, Syria</li>
+        <li>+963 933 132 336</li>
+        <li>amrr.edris@gmail.com</li>
+        <li>Open to Work (Remote / Full-time)</li>
+      </ul>
+    </div>
+
+    <!-- Professional Summary -->
+    <div class="about-card">
+      <h3>Summary</h3>
+      <p>
+        Computer Engineering graduate and Flutter Developer with experience
+        building cross-platform applications for mobile, web, and desktop.
+        Focused on scalable architecture, clean UI, and API integration.
+      </p>
+    </div>
+
+    <!-- Technical Focus -->
+    <div class="about-card">
+      <h3>Technical Focus</h3>
+      <ul>
+        <li>Flutter / Dart Development</li>
+        <li>Firebase & REST APIs</li>
+        <li>Cross-platform SaaS systems</li>
+        <li>Backend Integration (Django / MySQL)</li>
+      </ul>
+    </div>
+
+    <!-- Strengths -->
+    <div class="about-card">
+      <h3>Strengths</h3>
+      <ul>
+        <li>Problem Solving (ICPC background)</li>
+        <li>Clean Architecture Thinking</li>
+        <li>Fast Learning & Adaptability</li>
+        <li>Git / Team Collaboration</li>
+      </ul>
+    </div>
+
+    <!-- Goals -->
+    <div class="about-card">
+      <h3>Goals</h3>
+      <p>
+        Seeking a junior or remote role in mobile development.
+        Interested in building scalable SaaS products and cloud-based systems.
+        Long-term goal: Full-Stack Mobile Engineer.
+      </p>
+    </div>
+
+    <!-- Languages -->
+    <div class="about-card">
+      <h3>Languages</h3>
+      <ul>
+        <li>Arabic — Native</li>
+        <li>English — Professional</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</main>
+    <!-- ====== CONTACT ====== -->
+<footer id="contact" class="fade">
+  <div class="container footer-grid" style="padding: 60px 0">
+
+    <div>
+      <h2 class="name">Amr Edris</h2>
+      <p class="description">Flutter Developer focused on building scalable cross-platform apps and SaaS systems.</p>
+    </div>
+
+    <div>
+      <h2>Get in touch</h2>
+      <a href="tel:+963933132336" dir="ltr">+963 933 132 336</a>
+      <a href="mailto:amrr.edris@gmail.com">amrr.edris@gmail.com</a>
+      <a href="https://wa.me/963933132336" target="_blank">WhatsApp</a>
+    </div>
+
+    <div>
+      <h2>Links</h2>
+      <a href="https://github.com/Amr-Edris">GitHub</a>
+      <a href="https://www.linkedin.com/in/%D9%90%D9%90amr-edris-b6327b243">LinkedIn</a>
+      <a href="https://drive.google.com/drive/folders/1Z0XnvLiJ9mAeYYp1m9bxvEvRLV-yyB4B?usp=sharing">Google Drive</a>
+      <a href="../assets/pdfs/Amr-Edris.pdf" download>Download CV</a>    </div>
+
+  </div>
+
+  <!-- MUST be outside grid -->
+  <div style="padding:15px 0;text-align:center;color:#9ca3af;font-size:14px;">
+  © 2026 Amr Edris. All rights reserved.
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+<script src="../js/projects-list.js" defer></script>
+<script src="../js/skills-list.js" defer></script>
+
+  </body>
+</html>

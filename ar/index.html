@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>عمرو إدريس — معرض الأعمال</title>
+    <meta name="description" content="معرض أعمال عمرو إدريس." />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <!-- ====== NAV ====== -->
+    <section class="header">
+      <div class="container nav">
+        <div class="logo">
+          <a href="#" class="brand">
+            <span class="logo-img">AE</span>
+            <span class="logo-name">عمرو إدريس</span>
+          </a>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#home" onclick="setActiveNav()">الرئيسية</a>
+          <a href="#projects" onclick="setActiveNav()">المشاريع</a>
+          <a href="#skills" onclick="setActiveNav()">المهارات</a>
+          <a href="#about" onclick="setActiveNav()">نبذة عني</a>
+          <a href="#contact" onclick="setActiveNav()">التواصل</a>
+
+          <hr />
+
+          <div class="header-actions">
+            <button id="langToggle" class="icon-btn lang-btn">
+              <img src="../assets/icons/language.svg" alt="اللغة" />
+              <span id="langText">EN</span>
+            </button>
+
+            <button id="themeToggle" class="icon-btn theme-btn">
+              <img id="themeIcon" src="../assets/icons/dark.svg" alt="الوضع" />
+            </button>
+          </div>
+        </nav>
+
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <div id="overlay"></div>
+
+    <main>
+      <!-- ====== HERO ====== -->
+      <header id="home" class="fade container hero">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">مطور Flutter متعدد المنصات</div>
+
+            <h1>بناء تطبيقات عالية الجودة متعددة المنصات باستخدام Flutter.</h1>
+
+            <p class="lead">
+              خريج هندسة الحاسوب ومطور Flutter مع خبرة قوية في بناء تطبيقات
+              متعددة المنصات (Android و iOS و Web و Windows). أختص في إنشاء
+              واجهات مستخدم متجاوبة، وربط REST APIs، واستخدام Firebase لبناء
+              تطبيقات قابلة للتوسع وجاهزة للإنتاج. عملت أيضاً على مشروع SaaS
+              متكامل باستخدام Django في الخلفية.
+            </p>
+
+            <div class="cta">
+              <a class="btn" href="#projects">عرض المشاريع</a>
+              <a class="btn ghost" href="#contact">تواصل معي</a>
+            </div>
+          </div>
+
+          <div class="card" aria-hidden="true">
+            <div class="avatar">
+              <img src="../assets/images/profile.png" alt="صورة عمرو إدريس" />
+            </div>
+            <div class="badge">متاح للعمل</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ====== PROJECTS ====== -->
+      <section id="projects" class="fade container">
+        <div class="section-title">
+          <span class="dot"></span>
+          <h2>المشاريع</h2>
+        </div>
+
+        <div class="grid" id="projectsGrid"></div>
+      </section>
+
+      <!-- ====== SKILLS ====== -->
+      <section id="skills" class="fade container">
+        <div class="section-title">
+          <span class="dot"></span>
+          <h2>المهارات</h2>
+        </div>
+
+        <div class="skills-grid" id="skillsList"></div>
+      </section>
+
+      <!-- ====== ABOUT ====== -->
+      <section id="about" class="fade container">
+        <div class="section-title">
+          <span class="dot"></span>
+          <h2>نبذة عني</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>المعلومات الشخصية</h3>
+            <ul>
+              <li>حلب، سوريا</li>
+              <li>+963 933 132 336</li>
+              <li>amrr.edris@gmail.com</li>
+              <li>متاح للعمل (عن بعد / دوام كامل)</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>الملخص</h3>
+            <p>
+              خريج هندسة الحاسوب ومطور Flutter بخبرة في بناء تطبيقات متعددة
+              المنصات للهواتف والويب وسطح المكتب مع تركيز على البنية القابلة
+              للتوسع وواجهة المستخدم النظيفة وربط الـ APIs.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>التركيز التقني</h3>
+            <ul>
+              <li>تطوير Flutter / Dart</li>
+              <li>Firebase و REST APIs</li>
+              <li>أنظمة SaaS متعددة المنصات</li>
+              <li>تكامل Backend (Django / MySQL)</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>نقاط القوة</h3>
+            <ul>
+              <li>حل المشكلات (خلفية ICPC)</li>
+              <li>تفكير معماري نظيف</li>
+              <li>سرعة التعلم والتكيف</li>
+              <li>Git والعمل الجماعي</li>
+            </ul>
+          </div>
+
+          <div class="about-card">
+            <h3>الأهداف</h3>
+            <p>
+              البحث عن وظيفة مبتدئة أو عن بعد في تطوير التطبيقات. مهتم ببناء
+              منتجات SaaS وأنظمة سحابية قابلة للتوسع. الهدف طويل المدى: مهندس
+              تطبيقات Full-Stack.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>اللغات</h3>
+            <ul>
+              <li>العربية — اللغة الأم</li>
+              <li>الإنجليزية — احترافية</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====== CONTACT ====== -->
+    <footer id="contact" class="fade">
+      <div class="container footer-grid" style="padding: 60px 0">
+        <div>
+          <h2 class="name">عمرو إدريس</h2>
+          <p class="description">
+            مطور Flutter متخصص في بناء تطبيقات SaaS متعددة المنصات وقابلة
+            للتوسع.
+          </p>
+        </div>
+
+        <div>
+          <h2>تواصل معي</h2>
+          <a href="tel:+963933132336">+963 933 132 336</a>
+          <a href="mailto:amrr.edris@gmail.com">amrr.edris@gmail.com</a>
+          <a href="https://wa.me/963933132336" target="_blank">واتساب</a>
+        </div>
+
+        <div>
+          <h2>روابط</h2>
+          <a href="https://github.com/Amr-Edris">GitHub</a>
+          <a href="https://www.linkedin.com/in/%D9%90%D9%90amr-edris-b6327b243"
+            >لينكدإن</a
+          >
+          <a
+            href="https://drive.google.com/drive/folders/1Z0XnvLiJ9mAeYYp1m9bxvEvRLV-yyB4B?usp=sharing"
+            >غوغل دراي</a
+          >
+          <a href="../assets/pdfs/Amr-Edris.pdf" download
+            >تحميل السيرة الذاتية</a
+          >
+        </div>
+      </div>
+
+      <div
+        style="
+          padding: 15px 0;
+          text-align: center;
+          color: #9ca3af;
+          font-size: 14px;
+        "
+      >
+        © 2026 عمرو إدريس. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/projects-list.js" defer></script>
+    <script src="../js/skills-list.js" defer></script>
+  </body>
+</html>
