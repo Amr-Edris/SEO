@@ -26,7 +26,10 @@ const skills = [
   "Project Management",
   "Windows Apps"
 ];
-document.getElementById("skillsList").innerHTML =
-skills.map(skill =>
- `<div class="skill-chip">${skill}</div>`
-).join("");
+const skillsContainer = document.getElementById("skillsList");
+
+if (skillsContainer) {
+  skillsContainer.innerHTML = skills
+    .map(skill => `<div class="skill-chip">${skill}</div>`)
+    .join("");
+}
