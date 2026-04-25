@@ -1,22 +1,22 @@
 
 const projectsData = {
   en: [
-    {
-      title: "DentLink Platform",
-      chip: "Full Stack • Flutter",
-      image: "../assets/images/dentlink.png",
-      alt: "DentLink Platform Project",
-      desc: `DentLink is a community-based platform that connects dental
-students with real patients who need dental treatments. It helps
-students complete clinical requirements in a structured and
-supervised environment, improving access to real cases while
-ensuring a professional workflow between students and patients.`,
-      links: [
-        { text: "Live Web ↗", url: "https://www.dentlink.sy/" },
-        { text: "Google Play ↗", url: "https://www.dentlink.sy/" },
-        { text: "App Store ↗", url: "https://www.dentlink.sy/" }
-      ]
-    },
+//     {
+//       title: "DentLink Platform",
+//       chip: "Full Stack • Flutter",
+//       image: "../assets/images/dentlink.png",
+//       alt: "DentLink Platform Project",
+//       desc: `DentLink is a community-based platform that connects dental
+// students with real patients who need dental treatments. It helps
+// students complete clinical requirements in a structured and
+// supervised environment, improving access to real cases while
+// ensuring a professional workflow between students and patients.`,
+//       links: [
+//         { text: "Live Web ↗", url: "https://www.dentlink.sy/" },
+//         { text: "Google Play ↗", url: "https://www.dentlink.sy/" },
+//         { text: "App Store ↗", url: "https://www.dentlink.sy/" }
+//       ]
+//     },
 
     {
       title: "Hbalruman — Digital Menu & Ordering System",
@@ -114,18 +114,18 @@ features such as games.`,
   ],
 
   ar: [
-    {
-      title: "منصة DentLink",
-      chip: "تطبيق شامل • Flutter",
-      image: "../assets/images/dentlink.png",
-      alt: "مشروع DentLink",
-      desc: `DentLink منصة مجتمعية تربط طلاب طب الأسنان بالمرضى الحقيقيين الذين يحتاجون إلى علاج أسنان. تساعد الطلاب على إكمال متطلبات التدريب السريري ضمن بيئة منظمة وتحت إشراف.`,
-      links: [
-        { text: "Website ↗", url: "https://www.dentlink.sy/" },
-        { text: "Google Play ↗", url: "https://www.dentlink.sy/" },
-        { text: "App Store ↗", url: "https://www.dentlink.sy/" }
-      ]
-    },
+    // {
+    //   title: "منصة DentLink",
+    //   chip: "تطبيق شامل • Flutter",
+    //   image: "../assets/images/dentlink.png",
+    //   alt: "مشروع DentLink",
+    //   desc: `DentLink منصة مجتمعية تربط طلاب طب الأسنان بالمرضى الحقيقيين الذين يحتاجون إلى علاج أسنان. تساعد الطلاب على إكمال متطلبات التدريب السريري ضمن بيئة منظمة وتحت إشراف.`,
+    //   links: [
+    //     { text: "Website ↗", url: "https://www.dentlink.sy/" },
+    //     { text: "Google Play ↗", url: "https://www.dentlink.sy/" },
+    //     { text: "App Store ↗", url: "https://www.dentlink.sy/" }
+    //   ]
+    // },
 
     {
       title: "Hbalruman — نظام منيو رقمي",
